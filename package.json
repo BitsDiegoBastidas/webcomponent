@@ -4,10 +4,14 @@
   "description": "this is my lab",
   "main": "index.js",
   "scripts": {
-    "build:webcomponent": "webpack"
+    "build:webcomponent_1": "webpack --config ./webcomponent_1/webpack.config.js",
+    "build:webcomponent_2": "webpack --config ./webcomponent_2/webpack.config.js",
+    "build:webcomponent_3": "webpack --config ./webcomponent_3/webpack.config.js",
+    "build:webcomponent_4": "webpack --config ./webcomponent_4/webpack.config.js"
   },
   "author": "@dfbastidas",
   "license": "MIT",
+  "type": "module",
   "devDependencies": {
     "@babel/core": "7.4.5",
     "@babel/plugin-transform-runtime": "7.12.10",

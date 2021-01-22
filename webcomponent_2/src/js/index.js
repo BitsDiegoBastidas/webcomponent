@@ -5,15 +5,12 @@ import axios from "axios";
 class PolySearch extends HTMLElement {
     connectedCallback() {
         this.doSearch(0);
-        this.titulo = this.getAttribute('data-titulo'); // RECIBIMOS PARAMETRO DE INDEX.HTML
-
+        this.name = this.getAttribute('name'); // RECIBIMOS PARAMETRO DE INDEX.HTML
         let shadowRoot = this.attachShadow({mode: 'open'});
         shadowRoot.innerHTML = contenedores;
-
-        this.shadowRoot.getElementById('titulo').innerText = this.titulo; // PASO DE PARAMETRO A CONTENEDORES.HTML
+        this.shadowRoot.getElementById('name').innerText = this.name; // PASO DE PARAMETRO A CONTENEDORES.HTML
         this.shadowRoot.querySelector('#btn-consultar').addEventListener('click', this);
     }
-
 
     doSearch(op) {
         var url = "";
@@ -26,9 +23,25 @@ class PolySearch extends HTMLElement {
             default:
                 axios.get('https://jsonplaceholder.typicode.com/users/'+op, {
                    responseType: 'json'
-                }).then((res)=>this.shadowRoot.getElementById('email').innerHTML = res.data.email)
+                }).then((res)=>this.updateEmail(res.data.email))
                 break;
         }
+    }
+
+    attributeChangedCallback(attr, old_value, new_value){
+        if (attr === "name"){
+            this.shadowRoot.getElementById('name').innerText = new_value; // PASO DE PARAMETRO A CONTENEDORES.HTML
+        }
+    }
+
+    //Debo decirle al navegador qué atributos debo observar:
+    static get observedAttributes(){
+        return ['name']
+    }
+
+    updateEmail(email) {
+        document.getElementById('external-div').innerHTML = email;
+        this.shadowRoot.getElementById('email').innerHTML = email;
     }
 
     renderResults(conten) {
@@ -57,7 +70,6 @@ class PolySearch extends HTMLElement {
             event.preventDefault();
         }
     }
-
 }
 
 customElements.define('poly-search', PolySearch);

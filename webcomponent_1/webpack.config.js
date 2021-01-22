@@ -6,7 +6,7 @@ module.exports = {
     },
     mode: 'development', // MODO
     output: {
-        path: path.resolve(__dirname, 'dist'), // CARPETA DONDE SE GUARDARÁN LOS ASSETS
+        path: path.resolve(__dirname, 'dist'), // CARPETA DONDE SE GUARDARÁN El/LOS ASSETS COMPILADOS
         filename: 'js/[name].js' // NOMBRE QUE RECIBE EL ARCHIVO.
     },
     //IMPORTAR CSS:

@@ -1,0 +1,27 @@
+$color-btn-bg : green;
+
+poly-search {
+  color: red;
+  font-size: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+poly-search::part(box) {
+  background:$color-btn-bg;
+  color: red;
+}
+
+poly-search::part(webcomponent_container_1) {
+  border: 1px solid blue;
+  width: 30%;
+  padding: 2em;
+  margin-bottom: 3em;
+  float: left;
+}
+
+poly-search::part(change_color) {
+  color: blue;
+}
+
+
+

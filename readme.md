@@ -12,7 +12,7 @@ Posteriormente podrá construir el webcomponent usando las carpetas SRC y index.
 
 Este comando compila un archivo JS el cual contiene todo el trabajo realizado y comprimido en dicho archivo, el cual se encuentra ubicado en
 
-*dist/js/home.js* <- Este es el archivo que le pasamos al cliente (Navegador)
+*dist/js/component1.js* <- Este es el archivo que le pasamos al cliente (Navegador)
 
 **SE RECOMIENDA CORRER EL PROYECTO DENTRO DE UN VHOST**
 
